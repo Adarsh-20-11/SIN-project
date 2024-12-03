@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Graph Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .dropdown-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dropdown {
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dropdown:hover {
+            border-color: #555;
+        }
+
+        .dropdown-options {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-options div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-options div:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flask Graph Example</h1>
+    </header>
+    <main>
+        <!-- Dropdown form -->
+        <form id="dropdownForm" method="post" action="{{ url_for('index') }}">
+            <div class="dropdown-container">
+                <select name="selectedTopic" id="dropdownSelect">
+                    <option value="" disabled selected>Select Topic</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Simulation">Simulation</option>
+                    <option value="Telecommunications Network">Telecommunications Network</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="Robotics">Robotics</option>
+                </select>
+                <button type="submit">Go to Choice</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

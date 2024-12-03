@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reference Graph Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+        .mt-4{
+            text-align: center;
+        }
+        .table{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <header>
+        <h1>Node and Edge Centrality Measures for References Graph</h1>
+        </header>
+        <main>
+        <!-- Display Node Centrality (Degree) -->
+        <div class="mt-4">
+            <h4>Node Centrality (Degree)</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Node</th>
+                        <th>Degree Centrality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in centrality_dfs[0].iterrows() %}
+                        <tr>
+                            <td>{{ row['Node'] }}</td>
+                            <td>{{ row['Degree Centrality'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </main>
+
+        <!-- Display Edge Centrality (Betweenness) -->
+        <!--
+        <div class="mt-4">
+            <h4>Edge Centrality (Betweenness)</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Edge</th>
+                        <th>Edge Betweenness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in centrality_dfs[1].iterrows() %}
+                        <tr>
+                            <td>{{ index }}</td>
+                            <td>{{ row['Edge Betweenness'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>-->
+
+        <!-- Display References Graph Image -->
+        <div class="mt-4">
+            <h4>References Graph</h4>
+            <img src="{{ url_for('static', filename='references.png') }}" alt="References Graph">
+        </div>
+    </div>
+</body>
+</html>

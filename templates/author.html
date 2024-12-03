@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Author Graph Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <header>
+        <h1>Node and Edge Centrality Measures for Authors Graph</h1>
+        </header>
+        <main>
+        <!-- Display Node Centrality (Degree) -->
+        <div class="mt-4">
+            <h4>Node Centrality (Degree)</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Node_id</th>
+                        <th>Node_name</th>
+                        <th>Degree Centrality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in author_df.iterrows() %}
+                        <tr>
+                            <td>{{ row['Node_id'] }}</td>
+                            <td>{{ row['Node_name'] }}</td>
+                            <td>{{ row['Degree Centrality'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4">
+            <h4>Authors Graph</h4>
+            <img src="{{ url_for('static', filename='author.png') }}" alt="References Graph">
+        </div>
+    </div>
+</main>
+</body>
+</html>
